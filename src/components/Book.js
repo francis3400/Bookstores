@@ -1,9 +1,11 @@
-import { useDispatch } from "react-redux";
-import { removeBook } from "../redux/books/bookSlice";
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/bookSlice';
 
 const Book = (book) => {
   const dispatch = useDispatch();
-  const { type, title, author, chapter, item_id } = book;
+  const {
+    type, title, author, chapter, item_id,
+  } = book;
   const handledelete = () => {
     dispatch(removeBook({ item_id }));
   };
@@ -40,4 +42,3 @@ const Book = (book) => {
 };
 
 export default Book;
-
