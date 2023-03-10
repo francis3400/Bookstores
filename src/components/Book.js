@@ -1,7 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/bookSlice';
+
 const Book = (book) => {
+  const dispatch = useDispatch();
   const {
-    type, title, author, chapter,
+    type, title, author, chapter, item_id,
   } = book;
+  const handledelete = () => {
+    dispatch(removeBook({ item_id }));
+  };
   return (
     <div className="theBook">
       <h3 className="bookType">{type}</h3>
@@ -9,7 +16,20 @@ const Book = (book) => {
       <h2 className="bookAuthor">{author}</h2>
       <ul className="bookOptions">
         <li className="option">Comments</li>
-        <li className="option">Remove</li>
+        <li>
+          <button
+            className="option"
+            onClick={() => {
+              handledelete(item_id);
+            }}
+            onKeyDown={() => {
+              handledelete(item_id);
+            }}
+            type="button"
+          >
+            Remove
+          </button>
+        </li>
         <li className="option">Edit</li>
       </ul>
       <div className="progress">
