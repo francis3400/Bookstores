@@ -147,7 +147,7 @@ npm run deploy
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Andrea Rivas**
+👤 **Francis Uche**
 
 - GitHub: [@Francis3400](https://github.com/francis3400)
 
