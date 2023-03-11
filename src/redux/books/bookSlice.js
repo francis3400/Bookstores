@@ -1,20 +1,19 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   books: [],
 };
 
-export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await fetch(
-    "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/E2qzz8QdXa8h3oCKPE3K/books"
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/E2qzz8QdXa8h3oCKPE3K/books',
   );
   const data = response.json();
   return data;
 });
 
-export const addBook = createAsyncThunk("books/addBook", async ({ book }) => {
-  const url =
-    "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/E2qzz8QdXa8h3oCKPE3K/books";
+export const addBook = createAsyncThunk('books/addBook', async ({ book }) => {
+  const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/E2qzz8QdXa8h3oCKPE3K/books';
   const dat = {
     item_id: book.item_id,
     title: book.title,
@@ -22,8 +21,8 @@ export const addBook = createAsyncThunk("books/addBook", async ({ book }) => {
     category: book.category,
   };
   const response = await fetch(url, {
-    method: "post",
-    headers: { "Content-type": "application/json" },
+    method: 'post',
+    headers: { 'Content-type': 'application/json' },
     body: JSON.stringify(dat),
   });
   response.text();
@@ -31,24 +30,24 @@ export const addBook = createAsyncThunk("books/addBook", async ({ book }) => {
 });
 
 export const removeBook = createAsyncThunk(
-  "books/removeBook",
+  'books/removeBook',
   async ({ item_id }) => {
     const response = await fetch(
       `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/E2qzz8QdXa8h3oCKPE3K/books/${item_id}`,
       {
-        method: "delete",
-        headers: { "Content-type": "application/json" },
+        method: 'delete',
+        headers: { 'Content-type': 'application/json' },
         body: JSON.stringify({ item_id }),
-      }
+      },
     );
 
     response.text();
     return { item_id };
-  }
+  },
 );
 
 const bookSlice = createSlice({
-  name: "books",
+  name: 'books',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -74,11 +73,10 @@ const bookSlice = createSlice({
     });
     builder.addCase(removeBook.fulfilled, (state, action) => ({
       books: state.books.filter(
-        (book) => book.item_id !== action.payload.item_id
+        (book) => book.item_id !== action.payload.item_id,
       ),
     }));
   },
 });
 
 export default bookSlice.reducer;
-
