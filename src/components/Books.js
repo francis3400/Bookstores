@@ -1,8 +1,13 @@
-import { useSelector } from 'react-redux';
-import Book from './Book';
-import Form from './Form';
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from "../redux/books/bookSlice";
+import Book from "./Book";
+import Form from "./Form";
 function Books() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
   const bookList = useSelector((state) => state.books.books);
   return (
     <section className="forBooks">
@@ -13,6 +18,7 @@ function Books() {
           title={book.title}
           author={book.author}
           chapter={book.chapter}
+          id={book.item_id}
           item_id={book.item_id}
         />
       ))}
@@ -22,3 +28,4 @@ function Books() {
 }
 
 export default Books;
+
