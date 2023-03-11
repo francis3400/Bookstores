@@ -1,0 +1,55 @@
+.theBook {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: solid;
+  border-color: rgb(176, 176, 176);
+  margin: 100px;
+  border-radius: 5px;
+  padding: 40px;
+  line-height: 2px;
+  background: #fff;
+}
+
+.aboutBook {
+  line-height: 5px;
+}
+
+.bookTitle {
+  font-size: 30px;
+}
+
+.bookAuthor {
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(0, 132, 255);
+}
+
+.bookOptions {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  color: rgb(0, 132, 255);
+  margin-left: -49px;
+}
+
+.option {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.optionB {
+  border: none;
+  background: #fff;
+  color: rgb(0, 132, 255);
+  font-size: 20px;
+  border-left: solid;
+  border-right: solid;
+  border-color: rgb(176, 176, 176);
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.progress {
+  position: relative;
+}

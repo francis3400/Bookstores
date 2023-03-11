@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/bookSlice';
+// import "../styles/Book.css";
 
 const Book = (book) => {
   const dispatch = useDispatch();
@@ -20,10 +21,10 @@ const Book = (book) => {
           <button
             className="option"
             onClick={() => {
-              handledelete(item_id);
+              handledelete();
             }}
             onKeyDown={() => {
-              handledelete(item_id);
+              handledelete();
             }}
             type="button"
           >

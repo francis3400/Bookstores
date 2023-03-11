@@ -12,8 +12,13 @@ function Form() {
   });
   const handlesubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook({ next: book }));
-    setbook({ title: '', item_id: '', author: '' });
+    dispatch(addBook({ book }));
+    setbook({
+      title: '',
+      item_id: '',
+      author: '',
+      category: 'fiction',
+    });
   };
 
   return (
