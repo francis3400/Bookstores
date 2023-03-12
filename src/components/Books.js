@@ -5,11 +5,13 @@ import Book from './Book';
 import Form from './Form';
 
 function Books() {
+  const bookList = useSelector((state) => state.books.books);
+  const isLoaded = useSelector((state) => state.books.isLoaded);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBooks());
-  }, [dispatch]);
-  const bookList = useSelector((state) => state.books.books);
+  }, [dispatch, isLoaded]);
+
   return (
     <section className="forBooks">
       {bookList.map((book) => (

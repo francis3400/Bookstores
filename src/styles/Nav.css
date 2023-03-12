@@ -1,0 +1,23 @@
+.mainMenu {
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  margin-top: 100px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px #dbdbdb;
+  line-height: 80px;
+}
+
+.theHeading {
+  color: rgb(0, 132, 255);
+}
+
+.options {
+  margin-top: 23px;
+}
+
+.options a {
+  padding-left: 60px;
+  text-decoration: none;
+  font-size: 17px;
+}

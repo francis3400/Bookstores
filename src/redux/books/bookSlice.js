@@ -2,13 +2,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   books: [],
+  isLoaded: false,
 };
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await fetch(
     'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/E2qzz8QdXa8h3oCKPE3K/books',
   );
-  const data = response.json();
+  const data = await response.json();
   return data;
 });
 
@@ -21,12 +22,11 @@ export const addBook = createAsyncThunk('books/addBook', async ({ book }) => {
     category: book.category,
   };
   const response = await fetch(url, {
-    method: 'post',
-    headers: { 'Content-type': 'application/json' },
+    method: 'POST',
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
     body: JSON.stringify(dat),
   });
-  response.text();
-  return { dat };
+  return response.text();
 });
 
 export const removeBook = createAsyncThunk(
@@ -61,15 +61,9 @@ const bookSlice = createSlice({
       };
     });
 
-    builder.addCase(addBook.fulfilled, (state, action) => {
-      const item = action.payload.dat;
-      const newitem = {
-        item_id: item.item_id,
-        author: item.author,
-        title: item.title,
-        category: item.category,
-      };
-      state.books.push(newitem);
+    builder.addCase(addBook.fulfilled, (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoaded = true;
     });
     builder.addCase(removeBook.fulfilled, (state, action) => ({
       books: state.books.filter(
