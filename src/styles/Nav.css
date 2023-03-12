@@ -26,3 +26,11 @@
 .cate {
   color: rgb(176, 176, 176);
 }
+
+.iconNav {
+  border: 1px solid var(--clr-lightgray);
+  border-radius: 50px;
+  padding-top: 10%;
+  color: rgb(0, 132, 255);
+  margin-left: 500px;
+}
