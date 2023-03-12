@@ -7,8 +7,8 @@ const Book = (book) => {
   const {
     type, title, author, chapter, item_id,
   } = book;
-  const handledelete = (iden) => {
-    dispatch(removeBook({ item_id: iden }));
+  const handledelete = () => {
+    dispatch(removeBook({ item_id }));
   };
   return (
     <div className="theBook">
@@ -21,10 +21,10 @@ const Book = (book) => {
           <button
             className="option"
             onClick={() => {
-              handledelete(item_id);
+              handledelete();
             }}
             onKeyDown={() => {
-              handledelete(item_id);
+              handledelete();
             }}
             type="button"
           >
