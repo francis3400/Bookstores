@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/bookSlice';
-// import "../styles/Book.css";
+import '../styles/Book.css';
 
 const Book = (book) => {
   const dispatch = useDispatch();

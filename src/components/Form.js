@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/bookSlice';
+import '../styles/Book.css';
 
 function Form() {
   const dispatch = useDispatch();

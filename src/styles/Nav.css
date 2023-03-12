@@ -6,6 +6,7 @@
   box-sizing: border-box;
   box-shadow: 2px 2px 2px #dbdbdb;
   line-height: 80px;
+  background: #fff;
 }
 
 .theHeading {
@@ -20,4 +21,8 @@
   padding-left: 60px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.cate {
+  color: rgb(176, 176, 176);
 }
